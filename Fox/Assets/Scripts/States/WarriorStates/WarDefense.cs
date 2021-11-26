@@ -33,8 +33,6 @@ public class WarDefense : WarriorState
         {
             //进入大硬直
             m_oppssum.stiffmulyiple = 3;
-            //显示可以处决
-            m_oppssum.execute.gameObject.SetActive(true);
             m_stateController.ChangeState("WarHurt");
             //平衡条清0
             m_oppssum.balance = 0;

@@ -32,23 +32,11 @@ public class WarriorState : IState
     public virtual void exit() { }
     public virtual void onCollisionEnter2D(Collision2D collision) { }
 
-    public virtual void onTriggerEnter2D(Collider2D collision)
-    {
-        if(collision.CompareTag("Fox"))
-        {
-            m_oppssum.target = collision.transform;
-        }
-    }
+    public virtual void onTriggerEnter2D(Collider2D collision){ }
 
     public virtual void onTriggerStay2D(Collider2D collision) { }
 
-    public virtual void onTriggerExit2D(Collider2D collision) 
-    {
-        if (collision.CompareTag("Fox"))
-        {
-            m_oppssum.target = null;
-        }
-    }
+    public virtual void onTriggerExit2D(Collider2D collision) { }
     public virtual void OnEvent() 
     {
         OnGetAttack();

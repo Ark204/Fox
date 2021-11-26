@@ -13,6 +13,8 @@ public class WarriorStateGroup : IStateGroup
         states.Add("WarAttack", new WarAttack(stateController));
         states.Add("WarDefense", new WarDefense(stateController));
         states.Add("WarHurt", new WarHurt(stateController));
+        states.Add("WarDeath", new WarDeath(stateController));
+
         firststate = states["WarIdle"];
     }
 }

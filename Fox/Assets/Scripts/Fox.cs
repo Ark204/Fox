@@ -22,6 +22,8 @@ public class Fox : MonoBehaviour
     public int cutCount = 2;  //攻击次数
     public float cutTime = 0.5f;  //攻击时间
     public float attackR=0.5f;  //攻击半径
+    //execute
+    public float executeSpeed = 200f;//处决移动速度
     //stiff
     public float stiffTime = 0.5f; //硬直时间
     //Obsolete
@@ -48,6 +50,7 @@ public class Fox : MonoBehaviour
     public Transform silkStart;
     public Transform CellingCheck;
     public Transform Ladder;
+    public List<Transform> nearEnemies;
     public Transform enemy; //敌人
     public LayerMask enemies; //敌人图层
     public LayerMask layerMask;
@@ -95,13 +98,17 @@ public class Fox : MonoBehaviour
         {
             sprintPressed = true;
         }
-        if (Input.GetButtonDown("Fire2"))
-        {
-            cutPressed = true;
-        }
         if (enemy)
         {
             executeable= enemy.GetComponent<Oppssum>().execute.gameObject.activeSelf ;
+        }
+        else
+        {
+            executeable = false;
+        }
+        if (Input.GetButtonDown("Fire2"))
+        {
+            cutPressed = true;
         }
     }
     private void OnTriggerEnter2D(Collider2D collision)
@@ -111,6 +118,14 @@ public class Fox : MonoBehaviour
             inLadder = true;
             Ladder = collision.GetComponentsInChildren<Transform>()[1];
         }
+        if (collision.CompareTag("Enemies"))
+        {
+            enemy = collision.transform;
+            if(!nearEnemies.Contains(enemy))
+            {
+                nearEnemies.Add(enemy);
+            }
+        }
     }
     private void OnTriggerExit2D(Collider2D collision)
     {
@@ -118,7 +133,14 @@ public class Fox : MonoBehaviour
         {
             inLadder = false;
         }
-        
+        if (collision.CompareTag("Enemies"))
+        {
+            if (nearEnemies.Contains(collision.transform))
+            {
+                nearEnemies.Remove(collision.transform);
+            }
+            enemy = null;
+        }
     }
     private void OnDrawGizmos()
     {

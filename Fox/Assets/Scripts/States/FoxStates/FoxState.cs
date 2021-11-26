@@ -58,7 +58,14 @@ public class FoxState : IState
     }
     protected void Cut()
     {
-        if (m_fox.cutPressed)
+        //如果按下攻击并且属于可以处决状态
+        if(m_fox.executeable&& m_fox.cutPressed)
+        {
+            m_fox.cutPressed = false;
+            m_stateController.ChangeState("Execute");
+        }
+        //如果按下攻击且攻击次数大于0,进入攻击状态
+        if (m_fox.cutPressed&&m_fox.cutCount>0)
         {
             m_fox.cutPressed = false;
             m_stateController.ChangeState("Cut");

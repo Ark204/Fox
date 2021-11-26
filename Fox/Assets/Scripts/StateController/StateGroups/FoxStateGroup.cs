@@ -18,6 +18,7 @@ public class FoxStateGroup : IStateGroup
         states.Add("SilkJump", new SilkJump(stateController));
         states.Add("Stiff", new Stiff(stateController));
         states.Add("Defense", new Defense(stateController));
+        states.Add("Execute", new Execute(stateController));
         firststate = states["Idle"];
     }
 }

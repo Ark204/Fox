@@ -53,6 +53,16 @@ public class Oppssum : MonoBehaviour
                 checkAttack = false;
             }
         }
+        //如果平衡值满了
+        if (balance == Maxbalance)
+        {
+            //显示可以处决
+            execute.gameObject.SetActive(true);
+        }
+        else
+        {
+            execute.gameObject.SetActive(false); 
+        }
     }
     void Death()
     {
@@ -61,5 +71,19 @@ public class Oppssum : MonoBehaviour
     private void OnDrawGizmos()
     {
         Gizmos.DrawWireSphere(attackPoint.position, attackR);
+    }
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.CompareTag("Fox"))
+        {
+            target = collision.transform;
+        }
+    }
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        if (collision.CompareTag("Fox"))
+        {
+            target = null;
+        }
     }
 }
