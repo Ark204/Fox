@@ -9,12 +9,14 @@ public class HealthBar : MonoBehaviour
     public Image healthPointImage;//主血条
     public Image healthPointEffect;//缓降血条
     public Image Enemyhealthpoint;//敌人血条
-    private Fox Fox;
+    private Fox Fox;//获得主角
+    private Oppssum Oppssum;
     //耐力条
     public Image endurancePointImage;//耐力条
     private void Awake()
     {
          Fox=GameObject.FindGameObjectWithTag("Fox").GetComponent<Fox>();
+         Oppssum=GameObject.FindGameObjectWithTag("Enemies").GetComponent<Oppssum>();
     }
     // Start is called before the first frame update
     void Start()
@@ -32,7 +34,7 @@ public class HealthBar : MonoBehaviour
         }
         else { healthPointEffect.fillAmount = healthPointImage.fillAmount; }
        endurancePointImage.fillAmount= (float)Fox.balance/ (float)Fox.Maxbalance;
-       //Enemyhealthpoint.fillAmount=Fox.Red / Fox.MaxRed;
+       Enemyhealthpoint.fillAmount= Oppssum.HP/Oppssum.MaxHP;
     }
     
 }
