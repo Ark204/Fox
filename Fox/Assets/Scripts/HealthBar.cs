@@ -13,6 +13,7 @@ public class HealthBar : MonoBehaviour
     private Oppssum Oppssum;
     //耐力条
     public Image endurancePointImage;//耐力条
+    public Image EnemyEndurance;
     private void Awake()
     {
          Fox=GameObject.FindGameObjectWithTag("Fox").GetComponent<Fox>();
@@ -35,6 +36,7 @@ public class HealthBar : MonoBehaviour
         else { healthPointEffect.fillAmount = healthPointImage.fillAmount; }
        endurancePointImage.fillAmount= (float)Fox.balance/ (float)Fox.Maxbalance;
        Enemyhealthpoint.fillAmount= Oppssum.HP/Oppssum.MaxHP;
+       EnemyEndurance.fillAmount=1;
     }
     
 }
