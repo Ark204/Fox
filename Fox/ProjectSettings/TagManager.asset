@@ -1,0 +1,63 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!78 &1
+TagManager:
+  serializedVersion: 2
+  tags:
+  - Enemies
+  - Ladder
+  - Fox
+  - Silk
+  - Ground
+  layers:
+  - Default
+  - TransparentFX
+  - Ignore Raycast
+  - 
+  - Water
+  - UI
+  - 
+  - 
+  - 
+  - Ground
+  - Enemies
+  - 
+  - 
+  - Player
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  m_SortingLayers:
+  - name: Default
+    uniqueID: 0
+    locked: 0
+  - name: BackGround
+    uniqueID: 1915700003
+    locked: 0
+  - name: FrontGround
+    uniqueID: 1432941325
+    locked: 0
+  - name: Map
+    uniqueID: 365114703
+    locked: 0
+  - name: Ladder
+    uniqueID: 3891877943
+    locked: 0
+  - name: Player
+    uniqueID: 66910969
+    locked: 0
