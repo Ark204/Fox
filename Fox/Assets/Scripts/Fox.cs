@@ -33,6 +33,8 @@ public class Fox : MonoBehaviour
     public bool shutPressed = false;
     [System.Obsolete("",true)]
     public float sprintdistance = 10;
+    //available
+    public bool executeable = false; 
     //Inputs
     public bool cutPressed = false;
     public bool sprintPressed = false;
@@ -96,6 +98,10 @@ public class Fox : MonoBehaviour
         if (Input.GetButtonDown("Fire2"))
         {
             cutPressed = true;
+        }
+        if (enemy)
+        {
+            executeable= enemy.GetComponent<Oppssum>().execute.gameObject.activeSelf ;
         }
     }
     private void OnTriggerEnter2D(Collider2D collision)

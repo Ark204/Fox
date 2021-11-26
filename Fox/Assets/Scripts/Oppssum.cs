@@ -27,6 +27,7 @@ public class Oppssum : MonoBehaviour
     //defense
     public bool checkAttack = false;
     //Component
+    public Transform execute;
     public Transform[] patrolPoint;
     public Transform[] chasePoint;
     public Transform target;

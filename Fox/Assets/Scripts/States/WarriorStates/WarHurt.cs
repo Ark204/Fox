@@ -13,7 +13,6 @@ public class WarHurt : WarriorState
         Debug.Log("敌人：受伤");
         //击退
         m_transform.Translate(0.5f* m_oppssum.target.localScale.x, 0, 0);
-        
     }
     public override void update()
     {
@@ -27,6 +26,8 @@ public class WarHurt : WarriorState
     {
         //硬直时间倍数初始化
         m_oppssum.stiffmulyiple = 1;
+        //处决标志去除
+        m_oppssum.execute.gameObject.SetActive(false);
         //计时器清零
         timer =0;
         Debug.Log("敌人：恢复");
