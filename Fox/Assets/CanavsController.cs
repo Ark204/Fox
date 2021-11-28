@@ -5,6 +5,10 @@ using UnityEditor.SceneManagement;
 
 public class CanavsController : MonoBehaviour
 {
+    public GameObject tip1;
+    public GameObject tip2;
+    public GameObject tip3;
+    public GameObject tip4;
     public GameObject PauseMenu;
     public void PauseGame(){
         PauseMenu.SetActive(true);
@@ -16,5 +20,10 @@ public class CanavsController : MonoBehaviour
     }  
     public void ReturnMenu(){
         EditorSceneManager.LoadScene("Menu");
+        Time.timeScale=1f;
+        tip1.SetActive(false);
+        tip2.SetActive(false);
+        tip3.SetActive(false);
+        tip4.SetActive(false);
     }
 }
