@@ -35,8 +35,8 @@ public class HealthBar : MonoBehaviour
         }
         else { healthPointEffect.fillAmount = healthPointImage.fillAmount; }
        endurancePointImage.fillAmount= (float)Fox.balance/ (float)Fox.Maxbalance;
-       Enemyhealthpoint.fillAmount= Oppssum.HP/Oppssum.MaxHP;
-       EnemyEndurance.fillAmount=1;
+       Enemyhealthpoint.fillAmount= (float)Oppssum.HP/(float)Oppssum.MaxHP;
+        EnemyEndurance.fillAmount = (float)Oppssum.balance / (float)Oppssum.Maxbalance;
     }
     
 }
