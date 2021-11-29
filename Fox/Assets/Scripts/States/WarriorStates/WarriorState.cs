@@ -17,7 +17,7 @@ public class WarriorState : IState
         //stateController绑定
         m_stateController = stateController;
         //组件获取
-        m_animator = m_stateController.GetComponent<Animator>();
+        m_animator = m_stateController.GetComponentInChildren<Animator>();
         m_rigidbody2D = m_stateController.GetComponent<Rigidbody2D>();
         m_oppssum = m_stateController.GetComponent<Oppssum>();
         m_transform = m_stateController.GetComponent<Transform>();

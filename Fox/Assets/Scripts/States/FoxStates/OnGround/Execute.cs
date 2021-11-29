@@ -5,7 +5,7 @@ public class Execute : OnGround
     public Execute(StateController stateController) : base(stateController) { }
     public override void enter()
     {
-        
+        m_animator.Play("skill_1");
     }
     public override void update()
     {
@@ -19,6 +19,7 @@ public class Execute : OnGround
                 m_fox.executeSpeed * Time.fixedDeltaTime); 
             if (Vector2.Distance(m_transform.position, enemyback) <= 0.1)
             {
+                m_animator.Play("skill_2");
                 m_stateController.ChangeState("Idle");
             }
         }

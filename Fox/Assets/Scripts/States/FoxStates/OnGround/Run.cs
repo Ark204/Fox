@@ -9,7 +9,7 @@ public class Run : OnGround
     {
         base.enter();
         //¶¯»­ÇÐ»»Îªrunning
-        m_animator.Play("run");
+        m_animator.Play("walking");
     }
     public override void update()
     {

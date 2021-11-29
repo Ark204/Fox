@@ -8,7 +8,7 @@ public class Defense : OnGround
     public override void enter()
     {
         //播放hurt动画
-        Debug.Log("播放防御动画");
+        m_animator.Play("defend");
     }
     public override void update()
     {
@@ -21,7 +21,7 @@ public class Defense : OnGround
     }
     public override void exit()
     {
-        Debug.Log("防御结束");
+        
     }
     protected override void OnGetAttack()
     {

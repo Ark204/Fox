@@ -13,11 +13,11 @@ public class Cut : FoxState
         m_fox.cutCount--;
         if(m_fox.cutCount==1)
         {
-            Debug.Log("主角：播放第一砍动画");
+            m_animator.Play("attack_1");
         }
         if(m_fox.cutCount==0)
         {
-            Debug.Log("主角：播放第二砍动画");
+            m_animator.Play("attack_2");
         }
     }
     public override void update()

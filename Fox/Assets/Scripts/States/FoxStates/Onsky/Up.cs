@@ -8,7 +8,7 @@ public class Up : Onsky
     public override void enter()
     {
         //动画切换为jumping
-        m_animator.Play("jump");
+        m_animator.Play("jumping");
         //跳跃次数减一
         m_fox.jumpCount--;
         //跳跃

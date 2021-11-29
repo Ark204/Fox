@@ -8,7 +8,7 @@ public class Idle : OnGround
     public override void enter()
     {
         base.enter();
-        m_animator.Play("idle");
+        m_animator.Play("Idle");
     }
     public override void update()
     {
