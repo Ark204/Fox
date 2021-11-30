@@ -10,20 +10,30 @@ public class CanavsController : MonoBehaviour
     public GameObject tip3;
     public GameObject tip4;
     public GameObject PauseMenu;
-    public void PauseGame(){
+    public void PauseGame()
+    {
         PauseMenu.SetActive(true);
-        Time.timeScale=0f;
+        Time.timeScale = 0f;
+
     }
-    public void ResumeGame(){
-        PauseMenu.SetActive(false);
-        Time.timeScale=1f;
-    }  
-    public void ReturnMenu(){
-        EditorSceneManager.LoadScene("Menu");
-        Time.timeScale=1f;
+    public void PauseGameFox()
+    {
+        PauseMenu.SetActive(true);
+        Time.timeScale = 0f;
         tip1.SetActive(false);
         tip2.SetActive(false);
         tip3.SetActive(false);
         tip4.SetActive(false);
+    }
+    public void ResumeGame()
+    {
+        PauseMenu.SetActive(false);
+        Time.timeScale = 1f;
+    }
+    public void ReturnMenu()
+    {
+        EditorSceneManager.LoadScene("Menu");
+        Time.timeScale = 1f;
+
     }
 }
