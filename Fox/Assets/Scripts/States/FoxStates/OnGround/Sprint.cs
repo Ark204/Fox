@@ -11,6 +11,7 @@ public class Sprint : OnGround
         base.enter();
         //初始化移动时间
         moveTime= m_fox.sprintTime;
+        m_animator.Play("shift");
         //进入无敌
         //取消重力
         //m_rigidbody2D.gravityScale = 0;
@@ -33,6 +34,7 @@ public class Sprint : OnGround
     }
     public override void exit()
     {
+        m_animator.Play("shift_2");
         //还原两个碰撞器
         //m_stateController.GetComponent<BoxCollider2D>().enabled = true;
         //m_stateController.GetComponent<PolygonCollider2D>().enabled = true;

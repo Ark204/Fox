@@ -2,13 +2,12 @@ using UnityEngine;
 
 public class Cut : FoxState
 {
-    private float cutTime;
+    private AnimatorStateInfo info;
     public Cut(StateController stateController) : base(stateController) { }
     public override void enter()
     {
         base.enter();
-        //初始化状态持续时间
-        cutTime = m_fox.cutTime;
+        m_rigidbody2D.velocity = new Vector2(0, 0);
         //砍的次数减一
         m_fox.cutCount--;
         if(m_fox.cutCount==1)
@@ -22,12 +21,12 @@ public class Cut : FoxState
     }
     public override void update()
     {
-        cutTime -= Time.fixedDeltaTime;
+        info = m_animator.GetCurrentAnimatorStateInfo(0);
         //处决或者二段砍
         Cut();
         //砍到一半攻击生效
-        if(m_fox.cutTime/2-Time.fixedDeltaTime < cutTime && 
-            cutTime < m_fox.cutTime/2&&
+        if(0.5f < info.normalizedTime &&
+            info.normalizedTime < 0.53&&
             Physics2D.OverlapCircle(m_fox.attackPoint.position, m_fox.attackR, m_fox.enemies))
         {
             //调用敌人受到生效攻击函数
@@ -37,7 +36,7 @@ public class Cut : FoxState
             }
         }
         //砍完了
-        if(cutTime<0)
+        if (info.normalizedTime >= 0.95f)
         {
             //如果是第二次斩结束
             if (m_fox.cutCount == 0)
@@ -47,7 +46,7 @@ public class Cut : FoxState
             }
             //返回idle状态
             else
-              m_stateController.ChangeState("Idle");
+                m_stateController.ChangeState("Idle");
         }
     }
     public override void exit(){ }

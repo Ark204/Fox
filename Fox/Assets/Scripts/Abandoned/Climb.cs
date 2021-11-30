@@ -38,7 +38,7 @@ public class Climb : FoxState
         m_stateController.GetComponent<PolygonCollider2D>().isTrigger = false;
         m_stateController.GetComponent<BoxCollider2D>().isTrigger = false;
         //还原重力
-        m_rigidbody2D.gravityScale = 3;
+        m_rigidbody2D.gravityScale = 6;
     }
     void ClimbMent()
     {

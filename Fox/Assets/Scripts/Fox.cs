@@ -7,10 +7,10 @@ public class Fox : MonoBehaviour
     //public member
     public float speed = 10; //基础移动速度
     //jump
-    public float jumpforce =10;  //跳跃力
+    public float jumpforce =20;  //跳跃力
     public int jumpCount = 2;  //跳跃次数
     //sprint  
-    public float sprintspeed = 30;  //冲刺速度
+    public float sprintspeed = 60;  //冲刺速度
     public float sprintTime = 0.1f;  //冲刺时间
     //Bleed
     public int MaxRed = 5;  //最大血量
@@ -110,6 +110,7 @@ public class Fox : MonoBehaviour
         {
             cutPressed = true;
         }
+        FindFrontCloest();
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -120,7 +121,7 @@ public class Fox : MonoBehaviour
         }
         if (collision.CompareTag("Enemies"))
         {
-            enemy = collision.transform;
+            Transform enemy = collision.transform;
             if(!nearEnemies.Contains(enemy))
             {
                 nearEnemies.Add(enemy);
@@ -139,11 +140,30 @@ public class Fox : MonoBehaviour
             {
                 nearEnemies.Remove(collision.transform);
             }
-            enemy = null;
         }
     }
     private void OnDrawGizmos()
     {
         Gizmos.DrawWireSphere(attackPoint.position, attackR);
+    }
+    private void FindFrontCloest()
+    {
+        if (nearEnemies.Count > 0)
+        {
+            Transform temp = nearEnemies[0];
+            for(int i =0; i<nearEnemies.Count;++i)
+            {
+                if ((nearEnemies[i].position.x - transform.position.x) * transform.localScale.x > 0 &&
+                    Vector2.Distance(transform.position, nearEnemies[i].position) < Vector2.Distance(transform.position, temp.position))
+                {
+                    temp = nearEnemies[i];
+                }
+            }
+            enemy = temp;
+        }
+        else
+        {
+            enemy = null;
+        }
     }
 }

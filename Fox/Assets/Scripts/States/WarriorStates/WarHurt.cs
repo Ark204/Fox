@@ -42,6 +42,7 @@ public class WarHurt : WarriorState
 }
 public class WarDeath : WarriorState
 {
+    private AnimatorStateInfo info;
     public WarDeath(StateController stateController) : base(stateController) { }
     public override void enter()
     {
@@ -49,7 +50,11 @@ public class WarDeath : WarriorState
     }
     public override void update()
     {
-        
+        info = m_animator.GetCurrentAnimatorStateInfo(0);
+        if (info.normalizedTime >= 0.95f)
+        {
+            m_oppssum.Death();
+        }
     }
     public override void exit()
     {

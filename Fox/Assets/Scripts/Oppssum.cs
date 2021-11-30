@@ -5,9 +5,9 @@ using UnityEngine;
 public class Oppssum : MonoBehaviour
 {
     //public member
-    public float speed = 10; //基础移动速度
+    public float speed = 4; //基础移动速度
     //chase
-    public float chasespeed = 12;  //追击速度
+    public float chasespeed = 6;  //追击速度
     //idle
     public float idleTime = 2f;  //站立时间
     //Bleed
@@ -64,7 +64,7 @@ public class Oppssum : MonoBehaviour
             execute.gameObject.SetActive(false); 
         }
     }
-    void Death()
+    public void Death()
     {
         Destroy(gameObject);
     }

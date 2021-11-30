@@ -8,7 +8,7 @@ public class WarChase : WarriorState
     public override void enter()
     {
         //≤•∑≈≈‹≤Ω∂Øª≠
-        m_animator.Play("run");
+        m_animator.Play("Run");
     }
     public override void update()
     {

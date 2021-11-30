@@ -8,7 +8,7 @@ public class WarDefense : WarriorState
     public override void enter()
     {
         //播放defense动画
-        Debug.Log("敌人：播放防御动画");
+        m_animator.Play("Defence");
     }
     public override void update()
     {
@@ -20,9 +20,7 @@ public class WarDefense : WarriorState
         }
     }
     public override void exit()
-    {
-        Debug.Log("敌人：防御结束");
-    }
+    {}
     protected override void OnGetAttack()
     {
         Debug.Log("格挡攻击");

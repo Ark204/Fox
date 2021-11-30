@@ -9,7 +9,7 @@ public class WarRun : WarriorState
     public override void enter()
     {
         //≤•∑≈≈‹≤Ω∂Øª≠
-        m_animator.Play("run");
+        m_animator.Play("Walk");
     }
     public override void update()
     {
