@@ -22,8 +22,6 @@ public class Cut : FoxState
     public override void update()
     {
         info = m_animator.GetCurrentAnimatorStateInfo(0);
-        //处决或者二段砍
-        Cut();
         //砍到一半攻击生效
         if(0.5f < info.normalizedTime &&
             info.normalizedTime < 0.53&&
@@ -34,6 +32,12 @@ public class Cut : FoxState
             {
                 m_fox.enemy.GetComponent<StateController>().StateEvent();
             }
+        }
+        //攻击生效后可以发动二次进攻
+        if(0.54f < info.normalizedTime)
+        {
+            //处决或者二段砍
+            Cut();
         }
         //砍完了
         if (info.normalizedTime >= 0.95f)

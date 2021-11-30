@@ -19,8 +19,7 @@ public class Execute : OnGround
                 m_fox.executeSpeed * Time.fixedDeltaTime); 
             if (Vector2.Distance(m_transform.position, enemyback) <= 0.1)
             {
-                m_animator.Play("skill_2");
-                m_stateController.ChangeState("Idle");
+                m_stateController.ChangeState("Stiff");
             }
         }
     }

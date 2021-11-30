@@ -7,6 +7,7 @@ public class Defense : OnGround
     public Defense(StateController stateController) : base(stateController) { }
     public override void enter()
     {
+        m_rigidbody2D.velocity = new Vector2(0, 0);
         //²¥·Åhurt¶¯»­
         m_animator.Play("defend");
     }

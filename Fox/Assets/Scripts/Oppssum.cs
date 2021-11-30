@@ -11,10 +11,10 @@ public class Oppssum : MonoBehaviour
     //idle
     public float idleTime = 2f;  //站立时间
     //Bleed
-    public int MaxHP = 5;  //最大血量
-    public int HP = 5;  //当前血量
-    public int Maxbalance = 1;  //最大平衡值
-    public int balance = 0;  //当前平衡值
+    public int MaxHP ;  //最大血量
+    public int HP ;  //当前血量
+    public int Maxbalance ;  //最大平衡值
+    public int balance ;  //当前平衡值
     //cut
     public int cutforce = 1;  //攻击力
     public int cutCount = 2;  //攻击次数
