@@ -12,11 +12,15 @@ public class Fox : MonoBehaviour
     //sprint  
     public float sprintspeed = 60;  //冲刺速度
     public float sprintTime = 0.1f;  //冲刺时间
+    public float sprintCD;   //冲刺冷却时间
     //Bleed
     public int MaxRed = 5;  //最大血量
     public int Red = 5;  //当前血量
     public int Maxbalance = 3;  //最大平衡值
     public int balance = 0;  //当前平衡值
+    public float balanceRecoverSpeed; //平衡值恢复速度
+    //medicine
+    public int numMedicine = 0;//药品数量
     //cut
     public int cutforce = 1;  //攻击力
     public int cutCount = 2;  //攻击次数
