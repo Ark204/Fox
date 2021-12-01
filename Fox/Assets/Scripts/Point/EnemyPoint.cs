@@ -11,20 +11,17 @@ public class EnemyPoint : MonoBehaviour
     {
 
         GameObject fu = this.transform.parent.gameObject;
-        
     }
     private void Awake() {
         //var Father = gameObject.transform.parent;
         //GameObject fu = this.transform.parent.gameObject;
     }
-
-    // Update is called once per frame
     void Update()
     {
         GameObject fu = this.transform.parent.gameObject;
         Vector2 Por=Point.transform.position;
         Por.x=fu.transform.position.x;
-        Por.y=fu.transform.position.y+2;
+        Por.y=fu.transform.position.y+1;
         Point.transform.position=Por;
     }
 }

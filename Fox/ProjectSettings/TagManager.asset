@@ -9,6 +9,8 @@ TagManager:
   - Fox
   - Silk
   - Ground
+  - Medicine
+  - HP
   layers:
   - Default
   - TransparentFX
