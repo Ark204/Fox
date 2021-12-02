@@ -10,7 +10,8 @@ TagManager:
   - Silk
   - Ground
   - Medicine
-  - HP
+  - Door
+  - Key
   layers:
   - Default
   - TransparentFX
