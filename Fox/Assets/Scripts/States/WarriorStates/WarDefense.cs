@@ -7,6 +7,8 @@ public class WarDefense : WarriorState
     public WarDefense(StateController stateController) : base(stateController) { }
     public override void enter()
     {
+        //改变受伤委托
+        m_GetAttackFun = DefenseAttack;
         //播放defense动画
         m_animator.Play("Defence");
     }
@@ -20,7 +22,10 @@ public class WarDefense : WarriorState
         }
     }
     public override void exit()
-    {}
+    {
+        //还原受伤委托
+        m_GetAttackFun =NorGetAttack;
+    }
     protected override void OnGetAttack()
     {
         Debug.Log("格挡攻击");
@@ -35,5 +40,9 @@ public class WarDefense : WarriorState
             //平衡条清0
             m_oppssum.balance = 0;
         }
+    }
+    void DefenseAttack(Fox fox)
+    {
+        Debug.Log("DefenseAttack from"+fox.gameObject.name);
     }
 }

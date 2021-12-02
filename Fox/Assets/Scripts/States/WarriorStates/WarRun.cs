@@ -30,5 +30,4 @@ public class WarRun : WarriorState
             patrolPositon = 0;
         }
     }
-    
 }

@@ -19,6 +19,7 @@ public class FoxStateGroup : IStateGroup
         states.Add("Stiff", new Stiff(stateController));
         states.Add("Defense", new Defense(stateController));
         states.Add("Execute", new Execute(stateController));
+        states.Add("BackExecute", new BackExecute(stateController));
         firststate = states["Idle"];
     }
 }

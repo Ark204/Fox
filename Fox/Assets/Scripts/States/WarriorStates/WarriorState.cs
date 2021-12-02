@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class WarriorState : IState
 {
@@ -11,6 +12,7 @@ public class WarriorState : IState
     protected Rigidbody2D m_rigidbody2D;
     protected Oppssum m_oppssum;
     protected Transform m_transform;
+    public UnityAction<Fox> m_GetAttackFun;
     //构造函数
     public WarriorState(StateController stateController)
     {
@@ -21,6 +23,8 @@ public class WarriorState : IState
         m_rigidbody2D = m_stateController.GetComponent<Rigidbody2D>();
         m_oppssum = m_stateController.GetComponent<Oppssum>();
         m_transform = m_stateController.GetComponent<Transform>();
+        //委托初始化
+        m_GetAttackFun = new UnityAction<Fox>(NorGetAttack);
     }
     //接口实现
     public virtual void enter() { }
@@ -80,5 +84,9 @@ public class WarriorState : IState
         m_stateController.ChangeState("WarHurt");
         //血量减去主角攻击力
         m_oppssum.HP -= m_oppssum.target.GetComponent<Fox>().cutforce;
+    }
+    protected void NorGetAttack(Fox fox)
+    {
+        Debug.Log("NorGetAttack");
     }
 }

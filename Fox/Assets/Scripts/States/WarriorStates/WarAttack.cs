@@ -5,29 +5,29 @@ using UnityEngine;
 public class WarAttack : WarriorState
 {
     public WarAttack(StateController stateController) : base(stateController) { }
-    private float timer;
+    private AnimatorStateInfo info;
     public override void enter()
     {
+        //播放攻击动画
+        m_animator.Play("Attack_1");
     }
     public override void update()
     {
-        timer += Time.fixedDeltaTime;
-        if (m_oppssum.cutTime / 2 - Time.fixedDeltaTime < timer && timer < m_oppssum.cutTime / 2)
+        info = m_animator.GetCurrentAnimatorStateInfo(0);
+        if (0.5f < info.normalizedTime && info.normalizedTime < 0.535f&&
+            Physics2D.OverlapCircle(m_oppssum.attackPoint.position, m_oppssum.attackR, m_oppssum.targetLayer))
         {
-            //调用敌人受到生效攻击函数
+            //调用主角受到生效攻击函数
             if (m_oppssum.target != null)
             {
                 m_oppssum.target.GetComponent<StateController>().StateEvent();
             }
         }
-        if (timer >= m_oppssum.cutTime)
+        if (info.normalizedTime >=0.95f)
         {
             m_stateController.ChangeState("WarChase");
         }
     }
-    public override void exit()
-    {
-        timer = 0;
-    }
+    public override void exit(){ }
 
 }

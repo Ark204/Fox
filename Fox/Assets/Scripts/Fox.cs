@@ -1,7 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using UnityEngine.Events;
+public class PlayerEvent : UnityEvent<Fox> { }
 public class Fox : MonoBehaviour
 {
     //public member
@@ -12,7 +13,8 @@ public class Fox : MonoBehaviour
     //sprint  
     public float sprintspeed = 60;  //冲刺速度
     public float sprintTime = 0.1f;  //冲刺时间
-    public float sprintCD;   //冲刺冷却时间
+    public float sprintCd;     //冲刺冷却时间
+    public float sprintCurrCd =0;  //当前剩余冷却时间
     //Bleed
     public int MaxRed = 5;  //最大血量
     public int Red = 5;  //当前血量
@@ -40,7 +42,8 @@ public class Fox : MonoBehaviour
     [System.Obsolete("",true)]
     public float sprintdistance = 10;
     //available
-    public bool executeable = false; 
+    public bool norExecuteable = false;
+    public bool backExecuteable = false;
     //Inputs
     public bool cutPressed = false;
     public bool sprintPressed = false;
@@ -59,10 +62,16 @@ public class Fox : MonoBehaviour
     public LayerMask enemies; //敌人图层
     public LayerMask layerMask;
     public Vector3 shutPoint;
+    //events
+    public PlayerEvent onCutStart;
+    public UnityEvent onCutEnd;
+    public PlayerEvent onAttackEffect;
     // Start is called before the first frame update
     void Start()
     {
-       
+        onCutStart = new PlayerEvent();
+        onCutEnd = new UnityEvent();
+        onAttackEffect = new PlayerEvent();
     }
 
     // Update is called once per frame
@@ -73,10 +82,6 @@ public class Fox : MonoBehaviour
         {
             jumpPressed = true;
         }
-        //if (Input.GetButtonDown("Shut"))
-        //{
-        //    shutPressed = true;
-        //}
         if (Input.GetButtonDown("Grouch"))
         {
             defensePressed = true;
@@ -98,17 +103,24 @@ public class Fox : MonoBehaviour
             silkPressed = true;
             shutPoint = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         }
-        if(Input.GetButtonDown("Fire3"))
+        //刷新冷却时间
+        if(sprintCurrCd>0)
+        {
+            sprintCurrCd -= Time.deltaTime;
+        }
+        if(Input.GetButtonDown("Fire3")&&sprintCurrCd<=0)
         {
             sprintPressed = true;
         }
         if (enemy)
         {
-            executeable= enemy.GetComponent<Oppssum>().execute.gameObject.activeSelf ;
+            norExecuteable = enemy.GetComponent<Oppssum>().norExecute;
+            backExecuteable = enemy.GetComponent<Oppssum>().backExecute;
         }
         else
         {
-            executeable = false;
+            norExecuteable = false;
+            backExecuteable = false;
         }
         if (Input.GetButtonDown("Fire2"))
         {

@@ -12,7 +12,7 @@ public class WarHurt : WarriorState
         //播放hurt动画
         Debug.Log("敌人：受伤");
         //击退
-        m_transform.Translate(-0.5f* m_transform.localScale.x, 0, 0);
+        m_transform.Translate(-1.0f* m_transform.localScale.x, 0, 0);
     }
     public override void update()
     {
@@ -46,7 +46,7 @@ public class WarDeath : WarriorState
     public WarDeath(StateController stateController) : base(stateController) { }
     public override void enter()
     {
-        m_animator.Play("death");
+        m_animator.Play("Die");
     }
     public override void update()
     {

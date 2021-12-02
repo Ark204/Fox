@@ -2,12 +2,17 @@ using UnityEngine;
 
 public class Cut : FoxState
 {
-    private AnimatorStateInfo info;
     public Cut(StateController stateController) : base(stateController) { }
+    private AnimatorStateInfo info;
+    private bool attackEffect;
     public override void enter()
     {
         base.enter();
+        m_fox.onCutStart?.Invoke(m_fox);
+        //刹车
         m_rigidbody2D.velocity = new Vector2(0, 0);
+        //初始化攻击是否已经生效
+        attackEffect = false;
         //砍的次数减一
         m_fox.cutCount--;
         if(m_fox.cutCount==1)
@@ -23,11 +28,15 @@ public class Cut : FoxState
     {
         info = m_animator.GetCurrentAnimatorStateInfo(0);
         //砍到一半攻击生效
-        if(0.5f < info.normalizedTime &&
-            info.normalizedTime < 0.53&&
+        if(!attackEffect&&
+            0.5f < info.normalizedTime &&
             Physics2D.OverlapCircle(m_fox.attackPoint.position, m_fox.attackR, m_fox.enemies))
         {
+            //攻击已经生效
+            attackEffect = true;
             //调用敌人受到生效攻击函数
+            m_fox.onAttackEffect?.Invoke(m_fox);
+            Debug.Log("主角：攻击生效");
             if(m_fox.enemy!=null)
             {
                 m_fox.enemy.GetComponent<StateController>().StateEvent();
@@ -53,5 +62,9 @@ public class Cut : FoxState
                 m_stateController.ChangeState("Idle");
         }
     }
-    public override void exit(){ }
+    public override void exit()
+    {
+        m_fox.onCutEnd?.Invoke();
+    }
+    
 }

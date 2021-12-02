@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class FoxState : IState
 {
@@ -29,7 +30,6 @@ public class FoxState : IState
         //移动输入更新
         MoveMent();
         Cut();
-        Climb();
     }
     public virtual void exit(){}
     public virtual void onCollisionEnter2D(Collision2D collision) { }
@@ -56,8 +56,14 @@ public class FoxState : IState
     }
     protected void Cut()
     {
-        //如果按下攻击并且属于可以处决状态
-        if(m_fox.executeable&& m_fox.cutPressed)
+        //如果按下攻击并且属于可以背部处决状态
+        if (m_fox.backExecuteable && m_fox.cutPressed)
+        {
+            m_fox.cutPressed = false;
+            m_stateController.ChangeState("BackExecute");
+        }
+        //如果按下攻击并且属于可以正面处决状态
+        if (m_fox.norExecuteable&& m_fox.cutPressed)
         {
             m_fox.cutPressed = false;
             m_stateController.ChangeState("Execute");
@@ -89,40 +95,4 @@ public class FoxState : IState
             m_stateController.ChangeState("Climb");
         }
     }
-    //protected virtual void Silk()
-    //{
-    //    //如果按下射蜘蛛丝
-    //    if (m_fox.silkPressed)
-    //    {
-    //        //加载蜘蛛丝预制体
-    //        GameObject Silk = m_stateController.LoadPrefabs("Prefabs/silk");
-    //        //初始化预制体的坐标
-    //        Vector2 silkStart = m_fox.silkStart.position;
-    //        Silk.transform.position = new Vector2(silkStart.x+1, silkStart.y);
-    //        //设置发射点为父物体
-    //        Silk.transform.SetParent(m_fox.silkStart);
-    //        //计算旋转角度
-    //        Vector3 vector3 = new Vector3(m_fox.shutPoint.x - m_transform.position.x, m_fox.shutPoint.y - m_transform.position.y, 0);
-    //        vector3.Normalize();
-    //        Vector3 horizontal = new Vector3(1, 0, 0);
-    //        float degree = Vector3.Angle(horizontal, vector3);
-    //        //旋转发射点
-    //        m_fox.silkStart.transform.Rotate(0, 0,m_transform.localScale.x* degree);
-    //        m_fox.silkPressed = false;
-    //    }
-    //}
-    //通用射击方法
-    //protected virtual void Shut()
-    //{
-    //    //如果按下射击
-    //    if(m_fox.shutPressed)
-    //    {
-    //        GameObject bullet = m_stateController.LoadPrefabs("Prefabs/bullet");
-    //        bullet.transform.position = new Vector2(m_transform.position.x + m_fox.shutStartdistance * m_transform.localScale.x, m_transform.position.y);
-    //        Rigidbody2D bulletRb = bullet.GetComponent<Rigidbody2D>();
-    //        bulletRb.velocity = new Vector2(10 * m_transform.localScale.x, bulletRb.velocity.y);
-    //        m_fox.shutPressed = false;
-    //    }
-    //}
-    
 }

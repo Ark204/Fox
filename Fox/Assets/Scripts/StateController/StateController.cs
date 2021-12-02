@@ -5,6 +5,7 @@ public class StateController : MonoBehaviour
 {
     //私有状态代理
     protected IState m_state;
+    public IState M_state { get; }
     //状态组
     public IStateGroup stateGroup;
     // Start is called before the first frame update
