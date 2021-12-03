@@ -9,6 +9,9 @@ TagManager:
   - Fox
   - Silk
   - Ground
+  - Medicine
+  - Door
+  - Key
   layers:
   - Default
   - TransparentFX
