@@ -17,7 +17,6 @@ public class HealthBar : MonoBehaviour
     private void Awake()
     {
          Fox=GameObject.FindGameObjectWithTag("Fox").GetComponent<Fox>();
-         Oppssum=GameObject.FindGameObjectWithTag("Enemies").GetComponent<Oppssum>();
     }
     // Start is called before the first frame update
     void Start()

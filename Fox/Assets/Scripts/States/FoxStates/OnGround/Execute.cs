@@ -27,6 +27,6 @@ public class Execute : OnGround
     {
         //´¦¾öµÐÈË
         m_fox.enemy.GetComponent<Oppssum>().HP = 0;
-        m_fox.enemy.GetComponent<StateController>().ChangeState("WarHurt");
+        m_fox.enemy.GetComponent<StateController>().ChangeState("WarDeath");
     }
 }

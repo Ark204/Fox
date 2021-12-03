@@ -13,7 +13,7 @@ public class BackExecute : OnGround
     public override void update()
     {
         info = m_animator.GetCurrentAnimatorStateInfo(0);
-        if (info.normalizedTime > 0.55f)
+        if (info.normalizedTime > 0.95f)
         {
             //返回Idle状态
             m_stateController.ChangeState("Idle");
@@ -23,6 +23,6 @@ public class BackExecute : OnGround
     {
         //处决敌人
         m_fox.enemy.GetComponent<Oppssum>().HP = 0;
-        m_fox.enemy.GetComponent<StateController>().ChangeState("WarHurt");
+        m_fox.enemy.GetComponent<StateController>().ChangeState("WarDeath");
     }
 }

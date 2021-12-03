@@ -11,7 +11,6 @@ public class Hurt : FoxState
         base.enter();
         //²¥·Åhurt¶¯»­
         m_animator.Play("skill_1");
-        m_transform.Translate(-1.0f * m_fox.enemy.localScale.x, 0, 0);
     }
     public override void update()
     {

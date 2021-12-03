@@ -39,10 +39,6 @@ public class FoxState : IState
     public virtual void onTriggerStay2D(Collider2D collision) { }
 
     public virtual void onTriggerExit2D(Collider2D collision) { }
-    public virtual void OnEvent() 
-    {
-        OnGetAttack();
-    }
     //通用移动方法
     protected void MoveMent()
     {
@@ -74,14 +70,6 @@ public class FoxState : IState
             m_fox.cutPressed = false;
             m_stateController.ChangeState("Cut");
         }
-    }
-    //攻击生效时调用此方法
-    protected virtual void OnGetAttack()
-    {
-        //进入受伤状态
-        m_stateController.ChangeState("Hurt");
-        //血量减去主角攻击力
-        m_fox.Red -= m_fox.enemy.GetComponent<Oppssum>().cutforce;
     }
     //扩展功能
     protected void Climb()

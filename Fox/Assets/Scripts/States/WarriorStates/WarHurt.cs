@@ -11,8 +11,6 @@ public class WarHurt : WarriorState
         base.enter();
         //播放hurt动画
         Debug.Log("敌人：受伤");
-        //击退
-        m_transform.Translate(-1.0f* m_transform.localScale.x, 0, 0);
     }
     public override void update()
     {

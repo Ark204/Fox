@@ -12,7 +12,6 @@ public class WarriorState : IState
     protected Rigidbody2D m_rigidbody2D;
     protected Oppssum m_oppssum;
     protected Transform m_transform;
-    public UnityAction<Fox> m_GetAttackFun;
     //构造函数
     public WarriorState(StateController stateController)
     {
@@ -23,8 +22,6 @@ public class WarriorState : IState
         m_rigidbody2D = m_stateController.GetComponent<Rigidbody2D>();
         m_oppssum = m_stateController.GetComponent<Oppssum>();
         m_transform = m_stateController.GetComponent<Transform>();
-        //委托初始化
-        m_GetAttackFun = new UnityAction<Fox>(NorGetAttack);
     }
     //接口实现
     public virtual void enter() { }
@@ -41,10 +38,6 @@ public class WarriorState : IState
     public virtual void onTriggerStay2D(Collider2D collision) { }
 
     public virtual void onTriggerExit2D(Collider2D collision) { }
-    public virtual void OnEvent() 
-    {
-        OnGetAttack();
-    }
     //改变朝向
     protected void FlipTo(Transform target)
     {
@@ -72,21 +65,9 @@ public class WarriorState : IState
     protected void Defense()
     {
         //如果检测到发起进攻
-        if(m_oppssum.checkAttack)
-        {
-            m_stateController.ChangeState("WarDefense");
-        }
-    }
-    //攻击生效时调用此方法
-    protected virtual void OnGetAttack()
-    {
-        //进入受伤状态
-        m_stateController.ChangeState("WarHurt");
-        //血量减去主角攻击力
-        m_oppssum.HP -= m_oppssum.target.GetComponent<Fox>().cutforce;
-    }
-    protected void NorGetAttack(Fox fox)
-    {
-        Debug.Log("NorGetAttack");
+        //if (m_oppssum.checkAttack)
+        //{
+        //    m_stateController.ChangeState("WarDefense");
+        //}
     }
 }

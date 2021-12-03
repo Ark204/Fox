@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
-
+public class EnemyEvent : UnityEvent<Oppssum> { }
 public class Oppssum : MonoBehaviour
 {
     //public member
@@ -22,6 +22,8 @@ public class Oppssum : MonoBehaviour
     public int cutforce = 1;  //攻击力
     public int cutCount = 2;  //攻击次数
     public float cutTime = 0.5f;  //攻击时间
+    [Range(0,1)]
+    public float cutEffect = 0.5f; //攻击生效时间点
     public float attackR = 0.5f;  //攻击半径
     //stiff
     public float stiffTime = 0.5f; //硬直时间
@@ -31,6 +33,8 @@ public class Oppssum : MonoBehaviour
     //be executed
     public bool norExecute = false;
     public bool backExecute = false;
+    //key
+    public bool haveKey = false;
 
     public bool listening = false;
     //Component
@@ -41,10 +45,13 @@ public class Oppssum : MonoBehaviour
     public LayerMask targetLayer;//目标的图层
     public Transform attackPoint;//攻击范围圆心
     public StateController m_stateController;
+    //events
+    public EnemyEvent onAttackEffect;//敌人攻击生效事件
     // Start is called before the first frame update
     void Start()
     {
         m_stateController = GetComponent<StateController>();
+        onAttackEffect = new EnemyEvent();
     }
 
     // Update is called once per frame
@@ -132,6 +139,15 @@ public class Oppssum : MonoBehaviour
             }
         }
     }
+    private void OnDestroy()
+    {
+        if(haveKey)
+        {
+            GameObject key = (GameObject)Instantiate(Resources.Load("Prefabs/key"));
+            key.transform.position = transform.position;
+            key.transform.Translate(0, 1, 0);
+        }
+    }
     /// <summary>
     /// 当视野范围内的主角发动攻击调用此函数
     /// </summary>
@@ -156,9 +172,38 @@ public class Oppssum : MonoBehaviour
     /// <param name="fox"></param>
     void OnGetAttack(Fox fox)
     {
-        WarriorState state = (WarriorState)m_stateController.M_state;
-        if (state == null)
-            Debug.Log("null state");
-        state.m_GetAttackFun(fox);
+        if(m_stateController.CurrentState()=="WarDefense")
+        {
+            DefenseAttack(fox);
+        }
+        else
+        {
+            NorGetAttack(fox);
+        }
+    }
+    void NorGetAttack(Fox fox)
+    {
+        Debug.Log("NorGetAttack");
+        //击退
+        transform.Translate(2.0f * fox.transform.localScale.x, 0, 0);
+        //进入受伤状态
+        m_stateController.ChangeState("WarHurt");
+        //血量减去主角攻击力
+        HP -= fox.cutforce;
+    }
+    void DefenseAttack(Fox fox)
+    {
+        Debug.Log("格挡攻击");
+        //平衡值增加
+        balance++;
+        //平衡条超过最大平衡值
+        if (balance > Maxbalance)
+        {
+            //进入大硬直
+            stiffmulyiple = 3;
+            m_stateController.ChangeState("WarHurt");
+            //平衡条清0
+            balance = 0;
+        }
     }
 }

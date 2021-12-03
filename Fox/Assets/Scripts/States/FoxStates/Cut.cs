@@ -29,18 +29,13 @@ public class Cut : FoxState
         info = m_animator.GetCurrentAnimatorStateInfo(0);
         //砍到一半攻击生效
         if(!attackEffect&&
-            0.5f < info.normalizedTime &&
+            m_fox.cutEffect < info.normalizedTime &&
             Physics2D.OverlapCircle(m_fox.attackPoint.position, m_fox.attackR, m_fox.enemies))
         {
             //攻击已经生效
             attackEffect = true;
             //调用敌人受到生效攻击函数
             m_fox.onAttackEffect?.Invoke(m_fox);
-            Debug.Log("主角：攻击生效");
-            if(m_fox.enemy!=null)
-            {
-                m_fox.enemy.GetComponent<StateController>().StateEvent();
-            }
         }
         //攻击生效后可以发动二次进攻
         if(0.54f < info.normalizedTime)

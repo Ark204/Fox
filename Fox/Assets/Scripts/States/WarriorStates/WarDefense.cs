@@ -7,8 +7,6 @@ public class WarDefense : WarriorState
     public WarDefense(StateController stateController) : base(stateController) { }
     public override void enter()
     {
-        //改变受伤委托
-        m_GetAttackFun = DefenseAttack;
         //播放defense动画
         m_animator.Play("Defence");
     }
@@ -21,28 +19,5 @@ public class WarDefense : WarriorState
             m_stateController.ChangeState("WarChase");
         }
     }
-    public override void exit()
-    {
-        //还原受伤委托
-        m_GetAttackFun =NorGetAttack;
-    }
-    protected override void OnGetAttack()
-    {
-        Debug.Log("格挡攻击");
-        //平衡值增加
-        m_oppssum.balance++;
-        //平衡条超过最大平衡值
-        if (m_oppssum.balance>m_oppssum.Maxbalance)
-        {
-            //进入大硬直
-            m_oppssum.stiffmulyiple = 3;
-            m_stateController.ChangeState("WarHurt");
-            //平衡条清0
-            m_oppssum.balance = 0;
-        }
-    }
-    void DefenseAttack(Fox fox)
-    {
-        Debug.Log("DefenseAttack from"+fox.gameObject.name);
-    }
+    public override void exit(){ }
 }
