@@ -4,17 +4,13 @@ using UnityEngine;
 
 public class EnemyPoint : MonoBehaviour
 {
-    //public Transform Enemy;
+
     public Transform Point;
-    
     void Start()
     {
-
-        GameObject fu = this.transform.parent.gameObject;
+        //GameObject fu = this.transform.parent.gameObject;
     }
     private void Awake() {
-        //var Father = gameObject.transform.parent;
-        //GameObject fu = this.transform.parent.gameObject;
     }
     void Update()
     {

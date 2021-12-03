@@ -34,6 +34,13 @@ public class CanavsController : MonoBehaviour
     {
         EditorSceneManager.LoadScene("Menu");
         Time.timeScale = 1f;
-
+    }
+    public void DeadComeBack(){
+        EditorSceneManager.LoadScene("Menu");
+        Time.timeScale = 1f;
+    }
+    public void Return(){
+        EditorSceneManager.LoadScene(EditorSceneManager.GetActiveScene().buildIndex);
+        Time.timeScale = 1f;
     }
 }
