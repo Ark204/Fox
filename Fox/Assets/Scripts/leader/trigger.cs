@@ -7,6 +7,13 @@ public class trigger : MonoBehaviour
     private Fox Fox;
     public GameObject Door;
     public GameObject NoKey;
+<<<<<<< Updated upstream
+=======
+    public AudioSource LockDoor;
+    public AudioSource OpedDoor;
+    public AudioSource PlayMusic;
+    public AudioSource BoosMusic;
+>>>>>>> Stashed changes
     private void Awake()
     {
         Fox = GameObject.FindGameObjectWithTag("Fox").GetComponent<Fox>();
@@ -28,6 +35,10 @@ public class trigger : MonoBehaviour
                 other.transform.Rotate(0, -99, 0);
                 //ÏûºÄÔ¿³×
                 Fox.haveKey = false;
+<<<<<<< Updated upstream
+=======
+                OpedDoor.Play();
+>>>>>>> Stashed changes
             }
             else
             {
@@ -45,6 +56,12 @@ public class trigger : MonoBehaviour
             Door.GetComponent<Collider2D>().isTrigger = false;
             Door.transform.Rotate(0, 99, 0);
             other.enabled = false;
+<<<<<<< Updated upstream
+=======
+            LockDoor.Play();
+            PlayMusic.Stop();
+            BoosMusic.Play();
+>>>>>>> Stashed changes
         }
     }
     private void OnTriggerExit2D(Collider2D other)

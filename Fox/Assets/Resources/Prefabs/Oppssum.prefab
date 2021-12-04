@@ -348,12 +348,20 @@ MonoBehaviour:
   cutforce: 1
   cutCount: 2
   cutTime: 2
+<<<<<<< Updated upstream
+=======
+  cutEffect: 0.5
+>>>>>>> Stashed changes
   attackR: 1.5
   stiffTime: 0.5
   stiffmulyiple: 1
   checkAttack: 0
   norExecute: 0
   backExecute: 0
+<<<<<<< Updated upstream
+=======
+  haveKey: 0
+>>>>>>> Stashed changes
   listening: 0
   execute: {fileID: 4736865504989472752}
   patrolPoint:
@@ -521,7 +529,11 @@ SpriteRenderer:
   m_SortingLayerID: 365114703
   m_SortingLayer: 3
   m_SortingOrder: 0
+<<<<<<< Updated upstream
   m_Sprite: {fileID: -2413806693520163455, guid: ebe73ca9363db456bacf42c025bb4847, type: 3}
+=======
+  m_Sprite: {fileID: 21300000, guid: 5ebc29aff03e4f649bc4dcdd17364a0f, type: 3}
+>>>>>>> Stashed changes
   m_Color: {r: 0.9056604, g: 0.029049424, b: 0.029049424, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -573,7 +585,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 758289011398840005, guid: fee453ff248a0324b9295ec7c47f015f, type: 3}
       propertyPath: m_LocalRotation.w
+<<<<<<< Updated upstream
       value: 0.18340817
+=======
+      value: 0.18340819
+>>>>>>> Stashed changes
       objectReference: {fileID: 0}
     - target: {fileID: 758289011398840005, guid: fee453ff248a0324b9295ec7c47f015f, type: 3}
       propertyPath: m_LocalRotation.z
@@ -581,11 +597,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 935413446387489789, guid: fee453ff248a0324b9295ec7c47f015f, type: 3}
       propertyPath: m_LocalRotation.w
+<<<<<<< Updated upstream
       value: -0.37403345
       objectReference: {fileID: 0}
     - target: {fileID: 935413446387489789, guid: fee453ff248a0324b9295ec7c47f015f, type: 3}
       propertyPath: m_LocalRotation.z
       value: 0.92741525
+=======
+      value: -0.37403277
+      objectReference: {fileID: 0}
+    - target: {fileID: 935413446387489789, guid: fee453ff248a0324b9295ec7c47f015f, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0.92741555
+>>>>>>> Stashed changes
       objectReference: {fileID: 0}
     - target: {fileID: 940371567082529172, guid: fee453ff248a0324b9295ec7c47f015f, type: 3}
       propertyPath: m_SortingLayer
@@ -637,11 +661,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2165147087061862722, guid: fee453ff248a0324b9295ec7c47f015f, type: 3}
       propertyPath: m_LocalRotation.w
+<<<<<<< Updated upstream
       value: 0.7941169
       objectReference: {fileID: 0}
     - target: {fileID: 2165147087061862722, guid: fee453ff248a0324b9295ec7c47f015f, type: 3}
       propertyPath: m_LocalRotation.z
       value: -0.60776514
+=======
+      value: 0.79411674
+      objectReference: {fileID: 0}
+    - target: {fileID: 2165147087061862722, guid: fee453ff248a0324b9295ec7c47f015f, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0.6077654
+>>>>>>> Stashed changes
       objectReference: {fileID: 0}
     - target: {fileID: 2265740954804642887, guid: fee453ff248a0324b9295ec7c47f015f, type: 3}
       propertyPath: m_LocalRotation.w
@@ -856,6 +888,13 @@ PrefabInstance:
       value: -0.59111786
       objectReference: {fileID: 0}
     - target: {fileID: 4250262757713765504, guid: fee453ff248a0324b9295ec7c47f015f, type: 3}
+<<<<<<< Updated upstream
+=======
+      propertyPath: m_Bounds.m_Center.y
+      value: -0.0002578795
+      objectReference: {fileID: 0}
+    - target: {fileID: 4250262757713765504, guid: fee453ff248a0324b9295ec7c47f015f, type: 3}
+>>>>>>> Stashed changes
       propertyPath: m_Bounds.m_Center.z
       value: -1.0057177e-10
       objectReference: {fileID: 0}
@@ -977,6 +1016,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7082409035427224720, guid: fee453ff248a0324b9295ec7c47f015f, type: 3}
       propertyPath: m_Bounds.m_Center.x
+<<<<<<< Updated upstream
       value: -0.2956658
       objectReference: {fileID: 0}
     - target: {fileID: 7082409035427224720, guid: fee453ff248a0324b9295ec7c47f015f, type: 3}
@@ -998,12 +1038,42 @@ PrefabInstance:
     - target: {fileID: 7082409035427224720, guid: fee453ff248a0324b9295ec7c47f015f, type: 3}
       propertyPath: m_Bounds.m_Extent.z
       value: 0.0000004523189
+=======
+      value: -0.29566568
+      objectReference: {fileID: 0}
+    - target: {fileID: 7082409035427224720, guid: fee453ff248a0324b9295ec7c47f015f, type: 3}
+      propertyPath: m_Bounds.m_Center.y
+      value: 0.31475174
+      objectReference: {fileID: 0}
+    - target: {fileID: 7082409035427224720, guid: fee453ff248a0324b9295ec7c47f015f, type: 3}
+      propertyPath: m_Bounds.m_Center.z
+      value: -0.00000021320011
+      objectReference: {fileID: 0}
+    - target: {fileID: 7082409035427224720, guid: fee453ff248a0324b9295ec7c47f015f, type: 3}
+      propertyPath: m_Bounds.m_Extent.x
+      value: 0.42002422
+      objectReference: {fileID: 0}
+    - target: {fileID: 7082409035427224720, guid: fee453ff248a0324b9295ec7c47f015f, type: 3}
+      propertyPath: m_Bounds.m_Extent.y
+      value: 0.38327664
+      objectReference: {fileID: 0}
+    - target: {fileID: 7082409035427224720, guid: fee453ff248a0324b9295ec7c47f015f, type: 3}
+      propertyPath: m_Bounds.m_Extent.z
+      value: 0.00000045201858
+>>>>>>> Stashed changes
       objectReference: {fileID: 0}
     - target: {fileID: 7505798361031568032, guid: fee453ff248a0324b9295ec7c47f015f, type: 3}
       propertyPath: m_Bounds.m_Center.x
       value: -0.60047704
       objectReference: {fileID: 0}
     - target: {fileID: 7505798361031568032, guid: fee453ff248a0324b9295ec7c47f015f, type: 3}
+<<<<<<< Updated upstream
+=======
+      propertyPath: m_Bounds.m_Center.y
+      value: 1.3804364
+      objectReference: {fileID: 0}
+    - target: {fileID: 7505798361031568032, guid: fee453ff248a0324b9295ec7c47f015f, type: 3}
+>>>>>>> Stashed changes
       propertyPath: m_Bounds.m_Center.z
       value: 0.00000023567817
       objectReference: {fileID: 0}
@@ -1012,6 +1082,13 @@ PrefabInstance:
       value: 0.60047704
       objectReference: {fileID: 0}
     - target: {fileID: 7505798361031568032, guid: fee453ff248a0324b9295ec7c47f015f, type: 3}
+<<<<<<< Updated upstream
+=======
+      propertyPath: m_Bounds.m_Extent.y
+      value: 1.3804364
+      objectReference: {fileID: 0}
+    - target: {fileID: 7505798361031568032, guid: fee453ff248a0324b9295ec7c47f015f, type: 3}
+>>>>>>> Stashed changes
       propertyPath: m_Bounds.m_Extent.z
       value: 0.00000023567817
       objectReference: {fileID: 0}
@@ -1021,6 +1098,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7767592030649892611, guid: fee453ff248a0324b9295ec7c47f015f, type: 3}
       propertyPath: m_Bounds.m_Center.x
+<<<<<<< Updated upstream
       value: 0.64230174
       objectReference: {fileID: 0}
     - target: {fileID: 7767592030649892611, guid: fee453ff248a0324b9295ec7c47f015f, type: 3}
@@ -1042,16 +1120,53 @@ PrefabInstance:
     - target: {fileID: 7767592030649892611, guid: fee453ff248a0324b9295ec7c47f015f, type: 3}
       propertyPath: m_Bounds.m_Extent.z
       value: 0.00000046293036
+=======
+      value: 0.6423016
+      objectReference: {fileID: 0}
+    - target: {fileID: 7767592030649892611, guid: fee453ff248a0324b9295ec7c47f015f, type: 3}
+      propertyPath: m_Bounds.m_Center.y
+      value: 0.08916783
+      objectReference: {fileID: 0}
+    - target: {fileID: 7767592030649892611, guid: fee453ff248a0324b9295ec7c47f015f, type: 3}
+      propertyPath: m_Bounds.m_Center.z
+      value: 0.00000022090131
+      objectReference: {fileID: 0}
+    - target: {fileID: 7767592030649892611, guid: fee453ff248a0324b9295ec7c47f015f, type: 3}
+      propertyPath: m_Bounds.m_Extent.x
+      value: 0.23482674
+      objectReference: {fileID: 0}
+    - target: {fileID: 7767592030649892611, guid: fee453ff248a0324b9295ec7c47f015f, type: 3}
+      propertyPath: m_Bounds.m_Extent.y
+      value: 0.511288
+      objectReference: {fileID: 0}
+    - target: {fileID: 7767592030649892611, guid: fee453ff248a0324b9295ec7c47f015f, type: 3}
+      propertyPath: m_Bounds.m_Extent.z
+      value: 0.00000046277927
+>>>>>>> Stashed changes
       objectReference: {fileID: 0}
     - target: {fileID: 7900652436379432115, guid: fee453ff248a0324b9295ec7c47f015f, type: 3}
       propertyPath: m_Bounds.m_Center.x
       value: -0.10369748
       objectReference: {fileID: 0}
     - target: {fileID: 7900652436379432115, guid: fee453ff248a0324b9295ec7c47f015f, type: 3}
+<<<<<<< Updated upstream
+=======
+      propertyPath: m_Bounds.m_Center.y
+      value: -0.045253634
+      objectReference: {fileID: 0}
+    - target: {fileID: 7900652436379432115, guid: fee453ff248a0324b9295ec7c47f015f, type: 3}
+>>>>>>> Stashed changes
       propertyPath: m_Bounds.m_Center.z
       value: 0.00000047642175
       objectReference: {fileID: 0}
     - target: {fileID: 7900652436379432115, guid: fee453ff248a0324b9295ec7c47f015f, type: 3}
+<<<<<<< Updated upstream
+=======
+      propertyPath: m_Bounds.m_Extent.y
+      value: 0.91240346
+      objectReference: {fileID: 0}
+    - target: {fileID: 7900652436379432115, guid: fee453ff248a0324b9295ec7c47f015f, type: 3}
+>>>>>>> Stashed changes
       propertyPath: m_Bounds.m_Extent.z
       value: 7.8098594e-10
       objectReference: {fileID: 0}
