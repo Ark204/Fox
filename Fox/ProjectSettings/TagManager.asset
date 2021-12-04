@@ -12,6 +12,8 @@ TagManager:
   - Medicine
   - Door
   - Key
+  - HP
+  - LockDoor
   layers:
   - Default
   - TransparentFX

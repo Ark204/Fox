@@ -84,8 +84,4 @@ public class StateController : MonoBehaviour
     {
         m_state.onTriggerExit2D(collision);
     }
-    public void StateEvent()
-    {
-        m_state.OnEvent();
-    }
 }

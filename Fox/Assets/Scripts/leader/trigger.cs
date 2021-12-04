@@ -7,7 +7,6 @@ public class trigger : MonoBehaviour
     private Fox Fox;
     public GameObject Door;
     public GameObject NoKey;
-    private bool isKey = false;
     private void Awake()
     {
         Fox = GameObject.FindGameObjectWithTag("Fox").GetComponent<Fox>();
@@ -22,10 +21,13 @@ public class trigger : MonoBehaviour
         if (other.gameObject.tag == "Door")
         {
 
-            if (isKey == true)
+            if (Fox.haveKey == true)
             {
-                Destroy(other.gameObject);
-                Door.SetActive(true);
+                //开门
+                other.isTrigger = true;
+                other.transform.Rotate(0, -99, 0);
+                //消耗钥匙
+                Fox.haveKey = false;
             }
             else
             {
@@ -34,7 +36,15 @@ public class trigger : MonoBehaviour
         }
         if (other.tag == "Key")
         {
-            isKey = true;
+            Destroy(other.gameObject);
+            Fox.haveKey= true;
+        }
+        if(other.tag=="LockDoor")
+        {
+            //关门
+            Door.GetComponent<Collider2D>().isTrigger = false;
+            Door.transform.Rotate(0, 99, 0);
+            other.enabled = false;
         }
     }
     private void OnTriggerExit2D(Collider2D other)

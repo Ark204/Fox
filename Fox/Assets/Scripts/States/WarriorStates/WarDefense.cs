@@ -19,21 +19,5 @@ public class WarDefense : WarriorState
             m_stateController.ChangeState("WarChase");
         }
     }
-    public override void exit()
-    {}
-    protected override void OnGetAttack()
-    {
-        Debug.Log("格挡攻击");
-        //平衡值增加
-        m_oppssum.balance++;
-        //平衡条超过最大平衡值
-        if (m_oppssum.balance>m_oppssum.Maxbalance)
-        {
-            //进入大硬直
-            m_oppssum.stiffmulyiple = 3;
-            m_stateController.ChangeState("WarHurt");
-            //平衡条清0
-            m_oppssum.balance = 0;
-        }
-    }
+    public override void exit(){ }
 }

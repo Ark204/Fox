@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-//主角状态组
+//普通武士状态组
 public class WarriorStateGroup : IStateGroup
 {
     public override void InitDictionary(StateController stateController)
